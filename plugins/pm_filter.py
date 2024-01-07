@@ -1288,18 +1288,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "start":
         buttons = [[
-                    InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+                    InlineKeyboardButton('ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                 ],[
-                    InlineKeyboardButton('🦋 𝐂𝐇𝐀𝐍𝐍𝐄𝐋 🦋', url=CHNL_LNK),
-                    InlineKeyboardButton('✨ Mᴏᴠɪᴇ Gʀᴏᴜᴘ ✨', url="https://t.me/movies_hub_official1")
+                    InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about'),
+                    InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help')
                 ],[
-                    InlineKeyboardButton('♛ 𝐉𝐎𝐈𝐍 𝐀𝐃 𝐅𝐑𝐄𝐄 𝐆𝐑𝐎𝐔𝐏 ♛', callback_data='paid')
-                ],[
-                    InlineKeyboardButton('👻 Hᴇʟᴘ', callback_data='help'),
-                    InlineKeyboardButton('👾 Aʙᴏᴜᴛ', callback_data='about')
-                ],[
-                    InlineKeyboardButton('💰 Eᴀʀɴ Mᴏɴᴇʏ 💰', callback_data="shortlink_info")
-                  ]]
+                    InlineKeyboardButton('ᴅᴏɴᴀᴛᴇ 💳', callback_data='paid')
+                ],]
         
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
@@ -1996,7 +1991,7 @@ async def auto_filter(client, msg, spoll=False):
             try:
                if settings['auto_delete']:
                     await asyncio.sleep(300)
-                    m=await message.reply_text("🔎")
+                    m=await message.reply_text("sᴇᴀʀᴄʜɪɴɢ...⏳")
                     await hmm.delete()
                     await message.delete()
             except KeyError:
@@ -2006,7 +2001,7 @@ async def auto_filter(client, msg, spoll=False):
                 await message.delete()
         except Exception as e:
             logger.exception(e)
-            m=await message.reply_text("🔎") 
+            m=await message.reply_text("sᴇᴀʀᴄʜɪɴɢ...⏳") 
             fek = await message.reply_text(text=cap, reply_markup=InlineKeyboardMarkup(btn))
             await m.delete()
             try:
